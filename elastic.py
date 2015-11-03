@@ -16,20 +16,26 @@ def create_index():
     print r.status_code
     print r.text
 
-# list_indices()
-# create_index()
-# list_indices()
-
-def create_document(data, namespace):
-    url = "%s%s/%s/" % (elastic_index_url, namespace, data['id'])
-    r = requests.put(url, data=json.dumps(data))
+def get_index():
+    r = requests.get(elastic_index_url)
     print r.status_code
     print r.text
 
+# list_indices()
+# create_index()
+# list_indices()
+get_index()
 
-for i in range(0, 10):
-    person = {
-        "id": i,
-        "name": "Person %s" % i
-    }
-    create_document(person, 'persons')
+# def create_document(data, namespace):
+#     url = "%s%s/%s/" % (elastic_index_url, namespace, data['id'])
+#     r = requests.put(url, data=json.dumps(data))
+#     print r.status_code
+#     print r.text
+#
+#
+# for i in range(0, 10):
+#     person = {
+#         "id": i,
+#         "name": "Person %s" % i
+#     }
+#     create_document(person, 'persons')
